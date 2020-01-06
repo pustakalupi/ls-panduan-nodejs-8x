@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		div {
+			display: inline;
+		}
+	</style>
+</head>
+
+<body>
+	<h3>Percobaan Express.js dan Socket.io</h3><br>
+	Pesan: <div id='pesan'></div><br>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io.connect('http://localhost:654');
+		socket.on('salam', function (data) {
+			document.getElementById('pesan').innerHTML = data.content;
+			socket.emit('event_ke_server', {
+				name: 'event_ke_server',
+				type: 'event'
+			});
+		});
+	</script>
+</body>
+
+</html>

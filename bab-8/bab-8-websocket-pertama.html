@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		div {
+			display: inline;
+		}
+	</style>
+	<script>
+		var host = 'localhost';
+		var ws = new WebSocket('ws://' + host + ':9397');
+
+		ws.onopen = function (event) {
+			ws.send("pesan dikirimkan ke server");
+		};
+
+		ws.onmessage = function (event) {
+			document.getElementById('pesan').innerHTML = event.data;
+		};
+	</script>
+</head>
+
+<body>
+	<h3>Percobaan WebSocket</h3><br>
+	Pesan: <div id='pesan'></div><br>
+</body>
+
+</html>

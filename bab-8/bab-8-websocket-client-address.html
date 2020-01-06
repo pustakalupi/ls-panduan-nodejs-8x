@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		div {
+			display: inline;
+		}
+	</style>
+	<script>
+		var host = 'localhost';
+		var ws = new WebSocket('ws://' + host + ':9876');
+
+		ws.onmessage = function (event) {
+			document.getElementById('sang-ip').innerHTML = event.data;
+		};
+	</script>
+</head>
+
+<body>
+	<h3>IP Address Client dengan WebSocket</h3><br>
+	IP: <div id='sang-ip'></div><br>
+</body>
+
+</html>
